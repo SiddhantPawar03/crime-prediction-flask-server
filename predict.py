@@ -11,7 +11,11 @@ root = Path(".")
 
 
 def predict(model_name):
-    my_path = root / "ipc" / model_name
+    if(model_name[0] == 'i'):
+        my_path = root / "ipc" / model_name
+    else:
+        my_path = root / "sll" / model_name
+
     filename = open(my_path, 'rb')
     mp = pickle.load(filename)
     return mp.predict().forecast
