@@ -11,8 +11,7 @@ def hello_world():
 @app.route('/getData',methods=['GET'])
 def predict1():
     if request.method == 'GET':
-        response = predict('imh')
-        print(response['value'][0])
+        response = predict(request.args['model'])
         result = {}
         for i in range(3):
             result[2021 + i] = response['value'][i]
